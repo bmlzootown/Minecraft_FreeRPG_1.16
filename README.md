@@ -16,16 +16,16 @@ Earning experience is straightforward, mine to get mining experience, cut trees 
 
 To activate abilities, in most cases you can right click the corresponding tool then break a block. The 10 abilities are as follows:
 
-Big Dig: Activated by right clicking a shovel then breaking a block. Increases dig speed drastically.
-Timber: Activated by right clicking an axe then cutting a log. Will cause all logs above to break.
-Berserk Pick: Activated by right clicking a pickaxe then breaking a block. Will increase mining speed drastically.
-Natural Regeneration: Activated by right clicking a hoe then breaking a crop. Automatically replants all crops at a random growth stage.
-Super Bait: Activated by left clicking a fishing rod then fishing. Fish are instantly pulled out of the water, without waiting to get a bite.
-Rapid Fire: Activated by left clicking a bow. Arrow shots come out at maximum speed no matter how far the bow is pulled back.
-Spur Kick: Activated by right clicking most items while on a horse then left clicking most items. Grants your horse a temporary speed boost.
-Swift Strikes: Activated by right clicking a sword then hitting an entity. Your swings no longer have a cooldown.
-Stone Solid: Activated by right clicking with an empty hand then hitting an entity. Grants resistance at the cost of being slowed down.
-Great Axe: Activated by right clicking an axe then hitting an entity. Your attacks become an AOE strike that deals damage in a certain radius.
+- Big Dig: Activated by right clicking a shovel then breaking a block. Increases dig speed drastically.
+- Timber: Activated by right clicking an axe then cutting a log. Will cause all logs above to break.
+- Berserk Pick: Activated by right clicking a pickaxe then breaking a block. Will increase mining speed drastically.
+- Natural Regeneration: Activated by right clicking a hoe then breaking a crop. Automatically replants all crops at a random growth stage.
+- Super Bait: Activated by left clicking a fishing rod then fishing. Fish are instantly pulled out of the water, without waiting to get a bite.
+- Rapid Fire: Activated by left clicking a bow. Arrow shots come out at maximum speed no matter how far the bow is pulled back.
+- Spur Kick: Activated by right clicking most items while on a horse then left clicking most items. Grants your horse a temporary speed boost.
+- Swift Strikes: Activated by right clicking a sword then hitting an entity. Your swings no longer have a cooldown.
+- Stone Solid: Activated by right clicking with an empty hand then hitting an entity. Grants resistance at the cost of being slowed down.
+- Great Axe: Activated by right clicking an axe then hitting an entity. Your attacks become an AOE strike that deals damage in a certain radius.
 
 #### Player Features:
 - Intuitive experience gain
@@ -54,7 +54,7 @@ Great Axe: Activated by right clicking an axe then hitting an entity. Your attac
 #### Config, Permissions,Languages and Use:
 - [config.yml](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/config.yml)
 - [languages.yml](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/languages.yml)
-- [advancedConfig.yml] (https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/advancedConfig.yml)
+- [advancedConfig.yml](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/advancedConfig.yml)
 - [Permissions](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/plugin.yml)
 - [Mod Items](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/modItems.yml)
 
