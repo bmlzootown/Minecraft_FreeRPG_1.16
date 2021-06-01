@@ -5,7 +5,7 @@ Modified by bmlzootown to add 'support' for mod-based items. Original project ca
 ## Description:
 FreeRPG is a spigot 1.15+ plugin that adds an RPG skill system to minecraft. Inspired by Mcmmo, the goal of FreeRPG is to offer a free Mcmmo alternative. Each skill has a skill tree, with an additional global skill tree. The skill trees can be accessed with a very simplistic, Hypixel inspired GUI accessed using /fRPG.
 
-![freerpg-gif](https://www.spigotmc.org/attachments/freerpg-gif.549724/?__cf_chl_jschl_tk__=db80351f5373b5a5855b4ae108600938b03e7a50-1622588228-0-AWs0360nByQASzbe-J_VVr-QDOA4EpMLccvXcKfG-6bC4ArdeXGd71fK7hWfjqXo6KAJGy1mkzuVctoR-AUaHkchAqiIh-0IEucY071QRRKl1ktPUDsjw_nAzynshhomuxhJfilHl6f5hxlrCqzP_78nesVs8ltxeEq3NoJRTuOXe4nQoxqywWBqj0fHdSdtjQ1tOtdeNmLhlTgMf_b-c8aIxGj7zDJecCUIRO07c9bzv4Hz-lxrw3cAXBf7NAzdnqbiLxTBaD8u69oKkhlKbbdKcC8sska4QZmxcOZ9GuXJdf_4OsgseNl6Wai4GcDd6929O-X73f1wEps5UIIht4WYMJIqXIHLaN-ACZGcsQ_znus4qup9j4SMFdki2BTF2R06eNSq7IBXvmonR8zJziBerdRPBrnxoFP0IGH4Qi2KqYvfqx_qd3cT1d6E9WleIA)
+![freerpg-gif](./images/FreeRPG.gif)
 
 ## Getting Started:
 To install on any spigot server, simply drag the freerpg-{version}.jar file into the plugins folder.
