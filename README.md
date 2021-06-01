@@ -52,10 +52,11 @@ Great Axe: Activated by right clicking an axe then hitting an entity. Your attac
 - More to come soon...
 
 #### Config, Permissions,Languages and Use:
-- config.yml download
-- languages.yml download
-- advancedConfig.yml download
+- [config.yml](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/config.yml)
+- [languages.yml](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/languages.yml)
+- [advancedConfig.yml] (https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/advancedConfig.yml)
 - [Permissions](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/plugin.yml)
+- [Mod Items](https://github.com/bmlzootown/Minecraft_FreeRPG_1.16/blob/master/src/main/resources/modItems.yml)
 
 
 #### Commands:
