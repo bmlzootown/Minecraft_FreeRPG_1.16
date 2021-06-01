@@ -24,6 +24,7 @@ import java.util.*;
 
 public class Mining extends Skill{
     private String skillName = "mining";
+    private ConfigLoad configLoad;
 
     Random rand = new Random(); //Random class Import
     ArrayList<Block> veinOres = new ArrayList<Block>();
@@ -32,7 +33,7 @@ public class Mining extends Skill{
 
     public Mining(Player p) {
         super(p);
-        ConfigLoad configLoad = new ConfigLoad();
+        configLoad = new ConfigLoad();
         this.runMethods = configLoad.getAllowedSkillsMap().get(skillName);
         expMap = configLoad.getExpMapForSkill(skillName);
     }
@@ -145,14 +146,14 @@ public class Mining extends Skill{
                 }
 
                 if (causeExplosion) {
-                    Map<org.bukkit.util.Vector,Block> location_block = new HashMap<>();
-                    Map<org.bukkit.util.Vector,Material> location_blockType = new HashMap<>();
+                    Map<Vector,Block> location_block = new HashMap<>();
+                    Map<Vector,Material> location_blockType = new HashMap<>();
                     Block center = world.getBlockAt(tntLoc);
                     for (int x = -2; x < 3; x++) {
                         for (int y = -2; y < 3; y++) {
                             for (int z = -2; z < 3; z++) {
-                                location_block.put(new org.bukkit.util.Vector(x,y,z),center.getRelative(x,y,z));
-                                location_blockType.put(new org.bukkit.util.Vector(x,y,z),center.getRelative(x,y,z).getType());
+                                location_block.put(new Vector(x,y,z),center.getRelative(x,y,z));
+                                location_blockType.put(new Vector(x,y,z),center.getRelative(x,y,z).getType());
                             }
                         }
                     }

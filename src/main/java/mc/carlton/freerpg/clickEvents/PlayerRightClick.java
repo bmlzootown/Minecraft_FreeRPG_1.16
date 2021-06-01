@@ -103,7 +103,12 @@ public class PlayerRightClick implements Listener {
             if (p.getInventory().getItemInOffHand().getType() == Material.SHIELD) {
                 waitTicks = 6;
             }
-            
+
+            ConfigLoad configLoad = new ConfigLoad();
+            List<String> shovels2 = configLoad.getModItems().get("digging");
+            List<String> swords2 = configLoad.getModItems().get("swordsmanship");
+            List<String> axes2 = configLoad.getModItems().get("axeMastery");
+            List<String> pickaxes2 = configLoad.getModItems().get("mining");
 
             //Explosions
             if (itemInHandType == Material.FLINT_AND_STEEL) {
@@ -127,7 +132,7 @@ public class PlayerRightClick implements Listener {
             }
 
             //Digging
-            else if (shovels.contains(itemInHandType)) {
+            else if (shovels.contains(itemInHandType) || shovels2.contains(itemInHandType.name())) {
                 Digging diggingClass = new Digging(p);
                 if (a.equals(Action.RIGHT_CLICK_BLOCK)) {
                     if (!(e.getClickedBlock().getType() == Material.GRASS_BLOCK)) {
@@ -157,7 +162,7 @@ public class PlayerRightClick implements Listener {
                 }
             }
             //Woodcutting and AxeMastery
-            else if (axes.contains(itemInHandType)) {
+            else if (axes.contains(itemInHandType) || axes2.contains(itemInHandType.name())) {
                 Woodcutting woodcuttingClass = new Woodcutting(p);
                 if (a.equals(Action.RIGHT_CLICK_BLOCK)) {
                     if (woodcuttingClass.blacklistedBlock(e.getClickedBlock())) {
@@ -187,7 +192,7 @@ public class PlayerRightClick implements Listener {
                 }.runTaskLater(plugin, waitTicks);
             }
             //Mining
-            else if (pickaxes.contains(itemInHandType)) {
+            else if (pickaxes.contains(itemInHandType) || pickaxes2.contains(itemInHandType.name())) {
                 Mining miningClass = new Mining(p);
                 new BukkitRunnable() {
                     @Override
@@ -210,7 +215,7 @@ public class PlayerRightClick implements Listener {
                     } else {
                         Material blockAbove = e.getClickedBlock().getRelative(0,1,0).getType();
                         if (blockAbove == Material.AIR || blockAbove == Material.CAVE_AIR || blockAbove == Material.VOID_AIR) {
-                            ConfigLoad configLoad = new ConfigLoad();
+                            //ConfigLoad configLoad = new ConfigLoad();
                             Map<String, Integer> expMap = configLoad.getExpMapForSkill("farming");
                             increaseStats.changeEXP("farming", expMap.get("tillLand"));
                         }
@@ -256,7 +261,7 @@ public class PlayerRightClick implements Listener {
             }
 
             //Swordsmanship
-            else if (swords.contains(itemInHandType)) {
+            else if (swords.contains(itemInHandType) || swords2.contains(itemInHandType.name())) {
                 Swordsmanship swordsmanshipClass = new Swordsmanship(p);
                 new BukkitRunnable() {
                     @Override

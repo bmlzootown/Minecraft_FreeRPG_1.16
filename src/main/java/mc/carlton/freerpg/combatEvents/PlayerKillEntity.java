@@ -1,5 +1,6 @@
 package mc.carlton.freerpg.combatEvents;
 
+import mc.carlton.freerpg.configStorage.ConfigLoad;
 import mc.carlton.freerpg.gameTools.EntityPickedUpItemStorage;
 import mc.carlton.freerpg.globalVariables.ItemGroups;
 import mc.carlton.freerpg.perksAndAbilities.*;
@@ -29,13 +30,17 @@ public class PlayerKillEntity implements Listener {
             World world = p.getWorld();
             List<ItemStack> drops = e.getDrops();
 
+            ConfigLoad configLoad = new ConfigLoad();
+            List<String> swords = configLoad.getModItems().get("swordsmanship");
+            List<String> axes = configLoad.getModItems().get("axeMastery");
+
             //Farming
             Farming farmingClass = new Farming(p);
             farmingClass.animalDoubleDrops(entity,world,drops);
             farmingClass.killFarmAnimalEXP(entity);
 
             //Swordsmanship
-            if (itemGroups.getSwords().contains(p.getInventory().getItemInMainHand().getType())) {
+            if (itemGroups.getSwords().contains(p.getInventory().getItemInMainHand().getType()) || swords.contains(p.getInventory().getItemInMainHand().getType().name())) {
                 Swordsmanship swordsmanshipClass = new Swordsmanship(p);
                 swordsmanshipClass.killBuffs(e.getEntity());
                 swordsmanshipClass.thirstForBlood(e.getEntity());
@@ -49,7 +54,7 @@ public class PlayerKillEntity implements Listener {
             defenseClass.giveKillEXP(entity);
 
             //Axe Mastery
-            if (itemGroups.getAxes().contains(p.getInventory().getItemInMainHand().getType())) {
+            if (itemGroups.getAxes().contains(p.getInventory().getItemInMainHand().getType()) || axes.contains(p.getInventory().getItemInMainHand().getType().name())) {
                 AxeMastery axeMasteryClass = new AxeMastery(p);
                 axeMasteryClass.revitalized();
                 axeMasteryClass.warriorBlood();

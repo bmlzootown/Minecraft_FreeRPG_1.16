@@ -69,6 +69,7 @@ public class ConfigLoad {
     static Map<String,Double> spawnerEXPMultipliers = new HashMap<>();
     static Map<String,Double> mobFarmEXPMultipliers = new HashMap<>();
     static Map<String,Double> durabilityModifiers = new HashMap<>();
+    static Map<String, List<String>> modItems = new HashMap<>();
 
 
     public void initializeConfig(){
@@ -82,13 +83,26 @@ public class ConfigLoad {
         f.setWritable(true,false);
         FileConfiguration config = YamlConfiguration.loadConfiguration(f);
         File f1 = new File(plugin.getDataFolder(),"advancedConfig.yml");
-        f.setReadable(true,false);
-        f.setWritable(true,false);
+        f1.setReadable(true,false);
+        f1.setWritable(true,false);
         FileConfiguration advancedConfig = YamlConfiguration.loadConfiguration(f1);
+        File f2 = new File(plugin.getDataFolder(), "modItems.yml");
+        f2.setReadable(true,false);
+        f2.setWritable(true,false);
+        FileConfiguration modConfig = YamlConfiguration.loadConfiguration(f2);
 
         //Useful Label Groups:
         String[] labels = {"digging","woodcutting","mining","farming","fishing","archery","beastMastery","swordsmanship","defense","axeMastery","repair","agility","alchemy","smelting","enchanting"};
         String[] combatLabels = {"archery","beastMastery","swordsmanship","defense","axeMastery"};
+
+        //List<String> veinMinerBlockStrings = advancedConfig.getStringList("mining.veinMinerBlocks");
+        for (String label : labels) {
+            if (!modItems.containsKey(label)) {
+                modItems.put(label, modConfig.getStringList(label));
+            } else {
+                modItems.replace(label, modConfig.getStringList(label));
+            }
+        }
 
         //General Config and Config that has no real category
         defaultLanguage = config.getString("general.defaultLanguage");
@@ -491,5 +505,9 @@ public class ConfigLoad {
 
     public boolean isForceLanguage() {
         return forceLanguage;
+    }
+
+    public Map<String, List<String>> getModItems() {
+        return modItems;
     }
 }

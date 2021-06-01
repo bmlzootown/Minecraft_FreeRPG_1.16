@@ -446,7 +446,9 @@ public class Woodcutting extends Skill{
         if (!(leaves.contains(initialBlock.getType()))) { //Block must be a leaf
             return;
         }
-        if (!(new ItemGroups().getAxes().contains(itemInHand.getType()))) { //Must be holding an axe
+        ConfigLoad configLoad = new ConfigLoad();
+        List<String> axes2 = configLoad.getModItems().get("woodcutting");
+        if (!(new ItemGroups().getAxes().contains(itemInHand.getType()) || axes2.contains(itemInHand.getType().name()))) { //Must be holding an axe
             return;
         }
         Map<String, ArrayList<Number>> pStat = pStatClass.getPlayerData();
@@ -457,7 +459,7 @@ public class Woodcutting extends Skill{
         getTreeLeaves(initialBlock,initialBlock.getX(),initialBlock.getY(),initialBlock.getZ(),initialBlock.getType()); //Get Leaves in tree leaf chunk
         int numLeaves = treeLeaves.size();
         World world = initialBlock.getWorld();
-        ConfigLoad configLoad = new ConfigLoad();
+        //ConfigLoad configLoad = new ConfigLoad();
         damageTool(numLeaves,configLoad.getDurabilityModifiers().get("leafBlower"));
         PlacedBlocksManager placedBlocksManager = new PlacedBlocksManager();
         for (Block block : treeLeaves) {

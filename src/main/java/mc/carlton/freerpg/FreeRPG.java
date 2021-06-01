@@ -55,6 +55,7 @@ public final class FreeRPG extends JavaPlugin implements Listener {
         saveDefaultConfig();
         saveResource("languages.yml",false);
         saveResource("advancedConfig.yml",false);
+        saveResource("modItems.yml", false);
 
 
         //Checks config.yml and languages.yml for updates, and update them if needed (while trying to keep any edits)

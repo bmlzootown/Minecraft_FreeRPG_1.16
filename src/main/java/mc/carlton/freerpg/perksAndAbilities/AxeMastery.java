@@ -240,9 +240,11 @@ public class AxeMastery extends Skill{
         if (!runMethods) {
             return;
         }
+        ConfigLoad configLoad = new ConfigLoad();
+        List<String> axes2 = configLoad.getModItems().get("axeMastery");
         ItemGroups itemGroups = new ItemGroups();
         List<Material> axes = itemGroups.getAxes();
-        if (!(axes.contains(itemInHand.getType()))) {
+        if (!(axes.contains(itemInHand.getType()) || axes2.contains(itemInHand.getType().name()))) {
             return;
         }
         EntityGroups entityGroups = new EntityGroups();

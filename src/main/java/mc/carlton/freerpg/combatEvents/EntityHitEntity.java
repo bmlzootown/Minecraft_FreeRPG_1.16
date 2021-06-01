@@ -93,8 +93,12 @@ public class EntityHitEntity implements Listener {
 
 
             //Digging
-            if (shovels.contains(p.getInventory().getItemInMainHand().getType())) {
-                ConfigLoad configLoad = new ConfigLoad();
+            ConfigLoad configLoad = new ConfigLoad();
+            List<String> shovels2 = configLoad.getModItems().get("digging");
+            List<String> swords2 = configLoad.getModItems().get("swordsmanship");
+            List<String> axes2 = configLoad.getModItems().get("axeMastery");
+            if (shovels.contains(p.getInventory().getItemInMainHand().getType()) || shovels2.contains(p.getInventory().getItemInMainHand().getType().name())) {
+                //ConfigLoad configLoad = new ConfigLoad();
                 if (!configLoad.getAllowedSkillsMap().get("digging")) {
                     return;
                 }
@@ -104,8 +108,8 @@ public class EntityHitEntity implements Listener {
             }
 
             //swordsmanship
-            else if (swords.contains(p.getInventory().getItemInMainHand().getType())) {
-                ConfigLoad configLoad = new ConfigLoad();
+            else if (swords.contains(p.getInventory().getItemInMainHand().getType()) || swords2.contains(p.getInventory().getItemInMainHand().getType().name())) {
+                //ConfigLoad configLoad = new ConfigLoad();
                 if (!configLoad.getAllowedSkillsMap().get("swordsmanship")) {
                     return;
                 }
@@ -131,8 +135,8 @@ public class EntityHitEntity implements Listener {
                 }
             }
 
-            else if (axes.contains(p.getInventory().getItemInMainHand().getType())) {
-                ConfigLoad configLoad = new ConfigLoad();
+            else if (axes.contains(p.getInventory().getItemInMainHand().getType()) || axes2.contains(p.getInventory().getItemInMainHand().getType().name())) {
+                //ConfigLoad configLoad = new ConfigLoad();
                 if (!configLoad.getAllowedSkillsMap().get("axeMastery")) {
                     return;
                 }

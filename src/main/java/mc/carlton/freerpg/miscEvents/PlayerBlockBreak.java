@@ -46,6 +46,11 @@ public class PlayerBlockBreak implements Listener {
         List<Material> shovels = itemGroups.getShovels();
         List<Material> hoes = itemGroups.getHoes();
 
+        ConfigLoad configLoad = new ConfigLoad();
+        List<String> shovels2 = configLoad.getModItems().get("digging");
+        List<String> pickaxes2 = configLoad.getModItems().get("mining");
+        List<String> axes2 = configLoad.getModItems().get("axeMastery");
+
         //Blocks
         List<Material> tallCrops = itemGroups.getTallCrops();
         List<Material> logs = itemGroups.getLogs();
@@ -59,7 +64,7 @@ public class PlayerBlockBreak implements Listener {
         Map<Material,Object[]> flamePickEXP = expMaps.getFlamePickEXP();
 
         //Config
-        ConfigLoad configLoad = new ConfigLoad();
+        //ConfigLoad configLoad = new ConfigLoad();
 
 
         if (p.getGameMode() == GameMode.CREATIVE) {
@@ -83,7 +88,7 @@ public class PlayerBlockBreak implements Listener {
         boolean natural = !placedBlocksManager.isBlockTracked(block);
 
         //EXP drops
-        if (flamePickEXP.containsKey(blockType) && pickaxes.contains(itemInHand.getType()) && (int) pStat.get("global").get(13) > 0 && (int) pStat.get("smelting").get(13) > 0) {
+        if (flamePickEXP.containsKey(blockType) && (pickaxes.contains(itemInHand.getType()) || pickaxes2.contains(itemInHand.getType().name())) && (int) pStat.get("global").get(13) > 0 && (int) pStat.get("smelting").get(13) > 0) {
             Object[] flamePickData = flamePickEXP.get(blockType);
             if (natural) {
                 increaseStats.changeEXP((String) flamePickData[0], (int) flamePickData[1]);
@@ -194,7 +199,7 @@ public class PlayerBlockBreak implements Listener {
         //Abilities
 
         //Digging
-        if (shovels.contains(itemInHand.getType()) && diggingEXP.containsKey(blockType)) {
+        if ((shovels.contains(itemInHand.getType()) || shovels2.contains(itemInHand.getType().name())) && diggingEXP.containsKey(blockType)) {
             Digging diggingClass = new Digging(p);
             if (pAbilities[0] > -1) {
                 diggingClass.enableAbility();
@@ -205,7 +210,7 @@ public class PlayerBlockBreak implements Listener {
         }
 
         //Woodcutting
-        else if (axes.contains(itemInHand.getType()) && logs.contains(blockType)) {
+        else if ((axes.contains(itemInHand.getType()) || axes2.contains(itemInHand.getType().name())) && logs.contains(blockType)) {
             Woodcutting woodcuttingClass = new Woodcutting(p);
             if (pAbilities[1] > -1 && natural) {
                 woodcuttingClass.enableAbility();
@@ -216,7 +221,7 @@ public class PlayerBlockBreak implements Listener {
             }
         }
         //Mining
-        else if (pickaxes.contains(itemInHand.getType()) && pAbilities[2] > -1 && miningEXP.containsKey(blockType)) {
+        else if ((pickaxes.contains(itemInHand.getType()) || pickaxes2.contains(itemInHand.getType().name())) && pAbilities[2] > -1 && miningEXP.containsKey(blockType)) {
             Mining miningClass = new Mining(p);
             miningClass.enableAbility();
         }

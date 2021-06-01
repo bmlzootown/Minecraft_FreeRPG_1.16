@@ -155,9 +155,11 @@ public class Swordsmanship extends Skill{
         if ( !(thirstMobs.contains(entity.getType())) ) {
             return;
         }
+        ConfigLoad configLoad = new ConfigLoad();
+        List<String> swords2 = configLoad.getModItems().get("swordsmanship");
         ItemGroups itemGroups = new ItemGroups();
         List<Material> swords = itemGroups.getSwords();
-        if ( !(swords.contains(itemInHand.getType())) ) {
+        if ( !(swords.contains(itemInHand.getType()) || swords2.contains(itemInHand.getType().name())) ) {
             return;
         }
         Map<String, ArrayList<Number>> pStat = pStatClass.getPlayerData();
